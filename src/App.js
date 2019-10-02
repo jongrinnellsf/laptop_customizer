@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import CustomizationList from './CustomizationList';
 import Cart from './Cart';
+import Header from './Header'
+import Total from './Total'
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -47,9 +49,9 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header>
-          <h1>ELF Computing | Laptops</h1>
-        </header>
+        <Header>
+          ELF Computing | Laptops
+        </Header>
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
@@ -66,12 +68,9 @@ class App extends Component {
               selected={this.state.selected}
               USCurrencyFormat={USCurrencyFormat}
             />}
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
+            <Total>
+            {USCurrencyFormat.format(total)}
+            </Total>
           </section>
         </main>
       </div>
